@@ -6,7 +6,6 @@ import torchvision.models as models
 from PIL import Image
 from torchvision import transforms
 import numpy as np
-import requests, io
 from torch.autograd import Variable
 import sys
 
@@ -61,7 +60,8 @@ for i in range(pic_num):
     # get label
     output = resnet50.forward(img_variable)
     label_idx = torch.max(output.data, 1)[1][0]   #get an index(class number) of a largest element
-    print(label_idx)
+    if(i%10==0):
+        print(i)
 
     y_true = Variable( torch.LongTensor([label_idx]), requires_grad=False)   #tiger cat
     for j in range(num_steps):
