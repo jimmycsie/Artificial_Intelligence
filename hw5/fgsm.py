@@ -7,7 +7,6 @@ import keras
 import keras.backend as K
 from PIL import Image
 import numpy as np
-import matplotlib.pyplot as plt
 import sys
 
 # const variable----------------------------------
@@ -15,7 +14,7 @@ class_num = 1000
 pic_num = 200
 infinity_norm = 22
 iteration = 1
-epsilon = 5.54#infinity_norm / iteration
+epsilon = 19#infinity_norm / iteration
 print("epsilon =", epsilon)
 # ------------------------------------------------
 def find_outp(model):
@@ -97,10 +96,11 @@ for i in range(iteration):
     pic_noise = pic_noise - epsilon * grad
     
 
-pic_noise = pic_noise/255
-pic_noise = pic_noise.clip(0, 1)
+#pic_noise = pic_noise/255
+pic_noise = pic_noise.clip(0, 255)
 
 for i in range(pic_num):
     name = sys.argv[2] + '/' + number[i] + ".png"
-    plt.imsave(name, pic_noise[i])
-
+    #plt.imsave(name, pic_noise[i])
+    pic = Image.fromarray(pic_noise[i].astype("uint8"))
+    pic.save(name)
