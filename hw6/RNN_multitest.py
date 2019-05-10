@@ -26,7 +26,7 @@ test_seg = []
 rude_word = []
 """
 # get rude word but not in word2vec
-fp = open("word_expand.txt", "r")
+fp = open("word_expand.txt", "r", encoding="utf-8")
 line = fp.readline()
 rude_word = line.split(' ')
 fp.close()
@@ -35,7 +35,7 @@ rude_word = "始作俑者 幹文 肥宅社 肥宅座 賤女 豬之 小鬼子 早
 rude_word = rude_word.split(' ')
 
 # get segment data
-fp = open(input_path, "r")
+fp = open(input_path, "r", encoding="utf-8")
 for i in range(data_size):
     temp = []
     line = fp.readline()
@@ -103,7 +103,8 @@ for i in range(model_num):
     test_vec = np.array(test_vec, dtype = float)
     test_vec = np.reshape(test_vec, (test_vec.shape[0], model_time_step[i], 250))
     result = RNN_model[i].predict(test_vec)     # get result
-    
+    print(result[0], result[1])
+
     if(i >= 2):
         weight = 2
     else:
@@ -137,7 +138,7 @@ neg = 0
 #test_encoder = np.load( "encoder_test.npy" )
 
 # get test segment encoder
-fp = open("encoder.txt", "r")
+fp = open("encoder.txt", "r", encoding="utf-8")
 for i in range(data_size):
     temp = []
     line = fp.readline()
@@ -165,7 +166,8 @@ for i in range(data_size):
 print(pos, neg)
 #-------------------------------------------------------------------------
 
-
+print(result[0], test_seg[0])
+print(result[1], test_seg[1])
 
 pos = 0
 neg = 0
@@ -183,7 +185,7 @@ print("average :", pos, neg)
 
 
 
-with open(ans_path, 'w', newline='') as csvfile:
+with open(ans_path, 'w', encoding="utf-8", newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(["id", "label"])
     for i in range(len(ans)):
