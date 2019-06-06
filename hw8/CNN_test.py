@@ -6,7 +6,7 @@ from keras.models import load_model
 test_path = sys.argv[1]
 ans_path = sys.argv[2]
 model = load_model('./strong.h5')
-print(model.summary())
+
 
 test_x = []
 with open(file = test_path, mode = 'r', encoding = "GB18030") as csvfile:
