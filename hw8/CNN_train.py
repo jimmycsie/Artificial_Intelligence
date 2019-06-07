@@ -159,9 +159,9 @@ model.fit_generator(train_gen.flow(train_x, train_y, batch_size=batch_size),
 			epochs=epochs_teacher)
 
 train_x = np.load("aug.npy")
-train_y = np.load("label.npy")
+train_y = model_teacher.predict(train_x)
 model.fit(train_x, train_y, epochs=epochs_last, batch_size=batch_size, validation_data=(validation_x, validation_y))
 
 # save model
-model.save('./test.h5')
+model.save('strong.h5')
 
