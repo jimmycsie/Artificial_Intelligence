@@ -1,7 +1,7 @@
 import csv
 import numpy as np
 
-relevance_path = "./news_data_1/TD.csv"
+relevance_path = "TD.csv"
 stop = [230, 460, 500, 595, 734]
 # 支持前總統保外就醫 (15, q16)
 # 年金改革         (16, q17)
@@ -39,8 +39,7 @@ with open(file = relevance_path, mode = 'r', encoding = "utf-8") as csvfile:
 
 peek = np.array(peek)
 exclude = np.array(exclude)
-print(peek[4][:10])
-print(exclude[4][-1])
+
 
 np.save("peek.npy", peek)
 np.save("exclude.npy", exclude)

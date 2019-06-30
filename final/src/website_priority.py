@@ -11,15 +11,8 @@ from keras.preprocessing.sequence import pad_sequences
 from keras.layers import Embedding
 import sys
 import csv
-#import emoji
 import jieba
 import keras
-
-from sklearn import feature_extraction
-from sklearn.feature_extraction.text import TfidfTransformer
-import codecs
-from sklearn.feature_extraction.text import TfidfVectorizer
-import os
 import jieba.analyse
 
 
@@ -50,7 +43,7 @@ query_standpoint.append({'tvbs','appledaily','ltn'})		#反對旺旺中時併購�
 url2index={}
 count=0
 index2website={}
-with open('./news_data_1/NC_2.csv', newline='') as csvFile:
+with open('NC_1.csv', newline='') as csvFile:
 	rows = csv.reader(csvFile, delimiter=',')
 	for row in rows:
 		if count==0:

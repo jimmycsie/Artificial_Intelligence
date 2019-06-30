@@ -22,8 +22,8 @@ news_bag = np.load("news_bag.npy")
 query_bag = np.load("query_bag.npy")
 news_vec = np.load("news_vec.npy")
 query_vec = np.load("query_vec.npy")
-standpoint = np.load("../news_standpoint.npy")
-query_path = "./news_data_1/QS_1.csv"
+standpoint = np.load("news_standpoint.npy")
+query_path = "QS_1.csv"
 ans_path = "ans.csv"
 
 # standpoint ------------------------------------------------------------------------------------------

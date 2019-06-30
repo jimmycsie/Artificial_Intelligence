@@ -70,7 +70,7 @@ def combine(word):
 
 
 
-with open('./news_data_1/url2content2.json') as f:
+with open('url2content.json') as f:
 	texts = js.load(f)
 
 count = 0

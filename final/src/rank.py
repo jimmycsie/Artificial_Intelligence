@@ -8,7 +8,7 @@ from gensim.models import word2vec
 
 ans1 = []
 count = 0
-with open(file = "./strong/ans.csv", mode = 'r') as csvfile:
+with open(file = "ans.csv", mode = 'r') as csvfile:
     rows = csv.reader(csvfile)
     first = True
     for row in rows:
@@ -89,7 +89,7 @@ for j in range(1, 21):
         else:
             print(j, i)
 
-with open("ans2.csv", 'w', newline='') as csvfile:
+with open("strong.csv", 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
     for i in range(len(ans)):
         writer.writerow(ans[i])

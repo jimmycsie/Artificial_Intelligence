@@ -17,10 +17,10 @@ with open('word_terms_freq.json') as f:
 	word_terms_freq = js.load(f)
 data_y = np.load("TD.npy")
 """
-jieba.set_dictionary('./final/dict.txt.big')
+jieba.set_dictionary('dict.txt.big')
 index2url={}
 count=0
-with open('./final/news_data_1/NC_1.csv', newline='') as csvFile:
+with open('NC_1.csv', newline='') as csvFile:
 #with open('/Users/peter yang/Downloads/train.csv', newline='') as csvFile:
 	rows = csv.reader(csvFile, delimiter=',')
 	for row in rows:
@@ -42,7 +42,7 @@ train_x = []
 num = 0
 #for i in range(data.shape[0]):
     #news_seg = list(jieba.cut(data[i][0],cut_all=False))
-with open('./final/url2content.json') as f:
+with open('url2content.json') as f:
 	texts = js.load(f)
 header={}
 tail={}
@@ -86,7 +86,7 @@ PADDING_LENGTH = 500
 count=0
 data=[]
 y=[]
-with open('./final/news_data_1/TD.csv', newline='',encoding="utf-8-sig") as csvFile:
+with open('TD.csv', newline='',encoding="utf-8-sig") as csvFile:
 #with open('/Users/peter yang/Downloads/train.csv', newline='') as csvFile:
 	rows = csv.reader(csvFile, delimiter=',')
 	for row in rows:
@@ -101,7 +101,7 @@ with open('./final/news_data_1/TD.csv', newline='',encoding="utf-8-sig") as csvF
 			y.append(1)
 	#	data.append(emoji.demojize(row[1]))
 		count+=1
-print(y)
+#print(y)
 header=[]
 tail=[]
 for i in range(len(data)):

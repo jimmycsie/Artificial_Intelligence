@@ -9,7 +9,7 @@ with open('word_to_index.json') as f:
 	word_to_index = js.load(f)
 with open('word_terms_freq.json') as f:
 	word_terms_freq = js.load(f)
-with open('./news_data_1/url2content2.json') as f:
+with open('url2content.json') as f:
 	texts = js.load(f)
 document_num = len(texts)
 model = word2vec.Word2Vec.load("wordToVec1500.model")
